@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quandl</title>
+    <link rel="stylesheet" href="fonts.css">
+    <script>
+        const API_KEY = 'uzC1G6YSGxwgfQo2g2FU';
+        async function loadRate() {
+            let today = new Date();
+            today.setDate(new Date().getDate() - 1);
+            let startDate = today.toISOString().split('T')[0];
+            let endDate = today.toISOString().split('T')[0];
+            let url = `https://data.nasdaq.com/api/v3/datasets/BITFINEX/BTCUSD?start_date=${startDate}&end_date=${endDate}&api_key=${API_KEY}`;
+            let response = await fetch (url);
+            let responseAsJson = await response.json();
+            console.log('responseAsJson', responseAsJson);
+            showBitcoinToday(responseAsJson);
+        }
+        function showBitcoinToday(responseAsJson) {
+            let BitcoinRateToday = responseAsJson['dataset']['data'][0][3].toLocaleString('de-DE', { style: 'currency', currency: 'USD' });
+            document.getElementById('bitcoinInUSDToday').innerHTML = BitcoinRateToday;
+        }
+    </script>
+</head>
+<body onload="loadRate()">
+    <h1>Was kostet ein Bitcoin aktuell?</h1>
+    <div>Aktuell kostet ein Bitcoin <b id="bitcoinInUSDToday"></b></div>
+</body>
+</html>

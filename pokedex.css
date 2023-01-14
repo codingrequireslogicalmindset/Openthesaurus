@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    scroll-behavior: smooth;
+    background-image: url(./img/pokedex-comic.png);
+    background-size: cover;
+    height: 100%;
+}
+
+.arrow {
+    cursor: pointer;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pokeball-container {
+   margin: 16px;
+}
+
+.pokeball-container:hover {
+    transform: scale(1.2);
+}
+
+.hoverEffekt {
+    pointer-events: none;
+}
+
+.poke_pic {
+    width: 100px;
+    height: 100px;
+    top: 104px;
+    left: 65px;
+}
+
+.element {
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    font-size: 25px;
+    margin-left: 48px;
+    margin-right: 48px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
